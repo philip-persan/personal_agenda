@@ -1,2 +1,2 @@
-# personal_agenda
+# Personal Agenda
 A simple personal agenda
