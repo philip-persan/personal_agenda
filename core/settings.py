@@ -19,7 +19,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get('DEBUG') == '1' else False
 
-ALLOWED_HOSTS = [] # type: ignore
+ALLOWED_HOSTS = []  # type: ignore
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # * My App's
     'users',
+    'agenda',
 ]
 
 PASSWORD_HASHERS = [
