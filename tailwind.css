@@ -1,3 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: #efefef;
+  color: #111111;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 85% 5%;
+}
+
+::-webkit-scrollbar {
+  @apply w-3 bg-[#ba8ae3] rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white rounded;
+}
+
+header,
+main,
+footer {
+  @apply p-3;
+}
+
+header,
+footer {
+  background-color: #572087;
+  color: #efefef;
+}
+
+header {
+  @apply flex items-center justify-between;
+}
+
+header > h1 {
+  @apply text-2xl font-bold;
+}
+
+header > .icon {
+  @apply text-6xl;
+}
+
+header > nav {
+  @apply text-lg flex items-center justify-center gap-4;
+}
+
+footer {
+  @apply flex items-center justify-between;
+}
+
+input,
+select {
+  @apply rounded px-2 py-1;
+}
+
+.title {
+  @apply text-2xl font-semibold;
+}
+
+main {
+  @apply flex flex-col items-center justify-center gap-5;
+}
+
+.form_div {
+  @apply w-fit h-fit p-6 bg-[#5e35b1] rounded shadow-lg;
+}
+
+.form_div > form {
+  @apply flex flex-col items-start justify-center gap-4;
+}
+
+.form-group > label {
+  @apply block mb-2 text-[#efefef] font-semibold;
+}
+
+.form-group > input {
+  @apply font-medium;
+}
+
+.btn-s {
+  @apply w-32 px-4 py-2 bg-[#111111] rounded text-white font-bold;
+  @apply self-center mt-4 text-center;
+}
+
+.btn-p {
+  @apply w-28 px-4 py-2 bg-[#572087] rounded text-white font-bold;
+  @apply self-center mt-4 text-center;
+}
+
+.delete {
+  @apply flex flex-col items-center justify-center;
+}
+
+.contato_list {
+  @apply flex flex-wrap justify-center items-center gap-4 mt-10;
+  @apply overflow-auto;
+}
+
+.contact {
+  @apply w-96 h-fit rounded shadow-xl;
+  @apply flex flex-col items-center justify-between gap-5;
+}
+
+.top_card {
+  @apply w-full h-fit flex items-center justify-center gap-5;
+  @apply p-2 bg-[#572087] rounded-tl rounded-tr text-white;
+}
+
+.top_card > img {
+  @apply w-24 h-24 rounded-full bg-center;
+}
+
+.top_card > h1 {
+  @apply font-semibold text-lg;
+}
+
+.mid_card {
+  @apply w-full h-fit p-2 bg-[#efefef] flex flex-col gap-2;
+}
+
+.bottom_card {
+  @apply w-full h-fit flex items-center justify-center gap-4;
+  @apply p-2 bg-[#572087] rounded-bl rounded-br;
+}

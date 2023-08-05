@@ -4,32 +4,25 @@
 {% if messages %}
 {% include 'global/partials/messages.html' %}
 {% endif %}
-<h1>Todos os Contatos de {{ request.user.get_full_name }}</h1>
+<h1 class='title'>Todos os Contatos de {{ request.user.get_full_name }}</h1>
 <div class="contato_list">
-    <table class="table-auto">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for contato in contatos %}
-          <tr>
-            <td>{{ contato.nome }}</td>
-            <td>{{ contato.sobrenome }}</td>
-            <td>{{ contato.telefone }}</td>
-            <td>{{ contato.email }}</td>
-            <td>
-                <a href="{% url 'agenda:update' contato.id %}"><box-icon type='solid' name='pencil'></box-icon></a>
-                <a href="{% url 'agenda:delete' contato.id %}"><box-icon type='solid' name='x-square'></box-icon></box-icon></a>
-            </td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+  {% for contato in contatos %}
+    <div class="contact">
+      <div class="top_card">
+        {% comment %} <img src="{{ contato.imagem.url }}" alt=""> {% endcomment %}
+        <h1>{{ contato.nome_completo }}</h1>
+      </div>
+      <div class="mid_card">
+        <p><strong>Nome:</strong> {{ contato.nome }}</p>
+        <p><strong>Sobreome:</strong> {{ contato.sobrenome }}</p>
+        <p><strong>Telefone:</strong> {{ contato.telefone }}</p>
+        <p><strong>Email:</strong> {{ contato.email }}</p>
+      </div>
+      <div class="bottom_card">
+        <a class='btn-s' href="{% url 'agenda:update' contato.id %}">Editar</a>
+        <a class='btn-s' href="{% url 'agenda:delete' contato.id %}">Apagar</a>
+      </div>
+    </div>
+  {% endfor %}
 </div>
 {% endblock content %}

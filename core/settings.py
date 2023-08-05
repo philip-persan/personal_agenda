@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # * My App's
     'users',
     'agenda',
+    'home',
 ]
 
 PASSWORD_HASHERS = [

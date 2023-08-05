@@ -4,7 +4,7 @@
 {% if messages %}
 {% include 'global/partials/messages.html' %}
 {% endif %}
-<h1>Crie um novo contato</h1>
+<h1 class='title'>Crie um novo contato</h1>
 <div class="form_div">
     <form action="{% url 'agenda:create' %}" method="post">
         {% csrf_token %}
@@ -14,8 +14,8 @@
             {{ field }}
         </div>
         {% endfor %}
-        <button type="submit">Criar</button>
+        <button class='btn-s' type="submit">Criar</button>
     </form>
-    <a href="{% url 'agenda:list' %}">Voltar</a>
 </div>
+<a class='btn-p' href="{% url 'agenda:list' %}">Voltar</a>
 {% endblock content %}
