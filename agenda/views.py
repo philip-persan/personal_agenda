@@ -25,7 +25,9 @@ class GeradorDeContatoView(View):
 
 class ContatoListView(View):
     def get(self, request):
-        contatos = Contato.objects.all().select_related('user')
+        contatos = Contato.objects.filter(
+            user=request.user
+        ).all().select_related('user')
         ctx = {
             'contatos': contatos
         }
@@ -43,7 +45,9 @@ class ContatoCreateView(View):
     def post(self, request):
         form = ContatoForm(request.POST or None)
         if form.is_valid():
-            form.save()
+            contato = form.save(commit=False)
+            contato.user = request.user
+            contato.save()
             messages.success(request, 'Contato Salvo com Sucesso!')
             return redirect('agenda:create')
 
