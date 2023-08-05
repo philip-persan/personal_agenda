@@ -1,0 +1,35 @@
+{% extends 'global/base.html' %}
+{% block title %}List{% endblock title %}
+{% block content %}
+{% if messages %}
+{% include 'global/partials/messages.html' %}
+{% endif %}
+<h1>Todos os Contatos de {{ request.user.get_full_name }}</h1>
+<div class="contato_list">
+    <table class="table-auto">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for contato in contatos %}
+          <tr>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.sobrenome }}</td>
+            <td>{{ contato.telefone }}</td>
+            <td>{{ contato.email }}</td>
+            <td>
+                <a href="{% url 'agenda:update' contato.id %}"><box-icon type='solid' name='pencil'></box-icon></a>
+                <a href="{% url 'agenda:delete' contato.id %}"><box-icon type='solid' name='x-square'></box-icon></box-icon></a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock content %}

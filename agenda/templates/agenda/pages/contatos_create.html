@@ -1,0 +1,21 @@
+{% extends 'global/base.html' %}
+{% block title %}Create{% endblock title %}
+{% block content %}
+{% if messages %}
+{% include 'global/partials/messages.html' %}
+{% endif %}
+<h1>Crie um novo contato</h1>
+<div class="form_div">
+    <form action="{% url 'agenda:create' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="submit">Criar</button>
+    </form>
+    <a href="{% url 'agenda:list' %}">Voltar</a>
+</div>
+{% endblock content %}

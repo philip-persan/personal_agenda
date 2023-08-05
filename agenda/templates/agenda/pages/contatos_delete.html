@@ -1,0 +1,15 @@
+{% extends 'global/base.html' %}
+{% block title %}Delete{% endblock title %}
+{% block content %}
+{% if messages %}
+{% include 'global/partials/messages.html' %}
+{% endif %}
+<h1>Apagar o Contato: {{ contato.nome_completo }}</h1>
+<div class="delete">
+    <h3>Tem certeza que deseja apagar o contato?</h3>
+    <form action="{% url 'agenda:delete' contato.id %}" method="post">
+        <button type="submit">Apagar</button>
+    </form>
+    <a href="{% url 'agenda:list' %}">Voltar</a>
+</div>
+{% endblock content %}

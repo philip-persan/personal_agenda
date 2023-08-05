@@ -43,8 +43,6 @@ class Contato(models.Model):
     imagem = models.ImageField(
         verbose_name='Foto',
         upload_to=user_directory_path,
-        height_field=200,
-        width_field=300,
         default='user.png'
     )
 
@@ -53,7 +51,7 @@ class Contato(models.Model):
         return frase
 
     def __str__(self) -> str:
-        return self.nome_completo()
+        return f'{self.nome} {self.sobrenome}'
 
     class Meta:
         verbose_name = 'Contato'
